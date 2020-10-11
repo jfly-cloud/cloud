@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jfly-oauth" />
+        <module name="jfly-common" />
+        <module name="jfly-gen" />
+        <module name="jfly-api" />
+        <module name="jfly-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jfly-gen" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jfly-api" options="-parameters" />
+      <module name="jfly-cloud" options="" />
+      <module name="jfly-common" options="-parameters" />
+      <module name="jfly-gen" options="-parameters" />
+      <module name="jfly-oauth" options="-parameters" />
+      <module name="jfly-service" options="-parameters" />
+    </option>
+  </component>
+</project>

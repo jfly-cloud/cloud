@@ -1,0 +1,5 @@
+# Project exclude paths
+/jfly-api/target/
+/jfly-common/target/
+/jfly-oauth/target/
+/jfly-service/target/

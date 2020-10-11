@@ -1,0 +1,74 @@
+spring:
+  #数据库和redis配置
+  datasource:
+    url: jdbc:mysql://192.168.102.82:3306/mol?autoReconnect=true&useUnicode=true&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root12345
+    driverClassName: com.mysql.cj.jdbc.Driver
+    poolName: auth
+  redis:
+    host: 192.168.102.82
+    port: 6379
+    password: hello_redis
+    # 连接超时时间（毫秒）
+    timeout: 5000
+    lettuce:
+      pool:
+        max-active: 300
+        max-wait: 100
+        max-idle: 100
+        min-idle: 20
+        time-between-eviction-runs: 3000ms  #每ms运行一次空闲连接回收器
+      # 关闭超时时间
+    shutdown-timeout: 100
+#tomcat优化
+server:
+  tomcat:
+    accept-count: 100  #与线程数保持一致，默认值也是100
+    max-connections: 20000  #NIO模式下默认值
+    accesslog:
+      enabled: true
+      directory: logs/access/
+      prefix: access_log
+      suffix: .log
+      file-date-format: .yyyy-MM-dd
+      pattern: "%t [%I] %{X-Forwarded-For}i %l %u %r %s %b %D"
+    connection-timeout: 13000 #设置超时时间，单位为毫秒
+    threads:
+      max: 1200 #调整为1200
+      min-spare: 150
+#mybtais plus 配置
+mybatis-plus:
+  mapperLocations: classpath*:/mapper/**/*.xml #MyBatis Mapper 所对应的 XML 文件位置
+  typeAliasesPackage: com.jfly.api.entity #MyBaits 别名包扫描路径
+  configuration:
+    cacheEnabled: true #开启Mybatis二级缓存，默认为 true
+    lazyLoadingEnabled: true #懒加载的对象可能被任何懒属性全部加载，否则，每个属性都按需加载
+    mapUnderscoreToCamelCase: true #是否开启自动驼峰命名规则（camel case）映射
+    multipleResultSetsEnabled: true #
+    db-config:
+      logicDeleteField: deleted
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
+#jwt配置
+jwt:
+  header: Authorization   #http请求头所需要的字段
+  secret:  ea+c9H&d-aBW#hB_79T52JN0I_D=GjbO #jwt秘钥
+  expiration: 604800    # token有效时间,单位:秒
+  dataPeriod: 3000      # post body有效时间,单位:秒
+  md5-key:  YX4liUab8$p%MFtHKz8jtCSwa-NXg!mB   #md5加密混淆key
+#jetcache二级缓存配置
+jetcache:
+  statIntervalMinutes: 5  #统计间隔分钟
+  areaInCacheName: false
+  penetrationProtect: true
+  local:
+    default:
+      type: caffeine
+      keyConvertor: fastjson
+      limit: 2000
+      defaultExpireInMillis: 10000
+  remote:
+    default:
+      type: redis.springdata
+      keyConvertor: fastjson
+      defaultExpireInMillis: 10000
