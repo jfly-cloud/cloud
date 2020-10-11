@@ -46,4 +46,4 @@ create table jfly_user (
   unique key `mobile` (`mobile`),
   unique key `email` (`email`)
 ) engine=innodb  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci comment = '会员信息表';
-INSERT INTO jfly_user VALUES ('1','admin','21232f297a57a5a743894a0e4a801fc3','test','86-13905318174','test@163.com','1','oss','WEB','1','192.168.1.23','2020-07-12 07:56:12.0','0','system','2020-07-12 07:56:12.0','system','2020-07-12 07:56:12.0','2020-07-12 07:56:12.0');
+INSERT INTO jfly_user VALUES ('1','admin','21232f297a57a5a743894a0e4a801fc3','test','86-13905318174','test@163.com','1','oss','WEB','1','192.168.1.23','2020-07-12 07:56:12.0','0',1,'2020-07-12 07:56:12.0',1,'2020-07-12 07:56:12.0','2020-07-12 07:56:12.0');
