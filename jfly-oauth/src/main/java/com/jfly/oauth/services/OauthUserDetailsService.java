@@ -40,8 +40,6 @@ public class OauthUserDetailsService implements UserDetailsService {
         }
     }
     private static List<GrantedAuthority> mapToGrantedAuthorities(List<String> authorities) {
-        return authorities.stream()
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+        return authorities.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 }

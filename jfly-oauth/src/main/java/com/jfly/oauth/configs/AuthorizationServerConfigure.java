@@ -1,6 +1,7 @@
 package com.jfly.oauth.configs;
 
 import com.jfly.common.config.jwt.JwtProperties;
+import com.jfly.oauth.interceptor.AuthInterceptor;
 import com.jfly.oauth.services.OauthClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -46,6 +47,8 @@ public class AuthorizationServerConfigure extends AuthorizationServerConfigurerA
     private JwtAccessTokenConverter accessTokenConverter;
     @Autowired
     private TokenStore tokenStore;
+    @Autowired
+    private AuthInterceptor interceptor;
 
     /**
      * 用来配置令牌端点（Token Endpoint）的安全约束
@@ -121,6 +124,7 @@ public class AuthorizationServerConfigure extends AuthorizationServerConfigurerA
                 .authorizationCodeServices(authorizationCodeServices)//配置授权码模式授权码服务,不配置默认为内存模式
                 .userDetailsService(userDetailsService)//配置redis用户信息
                 .tokenServices(defaultTokenServices)//配置token资源服务
+                .addInterceptor(interceptor)
                 .exceptionTranslator(webResponseExceptionTranslator)//自定义登录或者鉴权失败时的返回信息
                 /**
                  pathMapping用来配置端点URL链接，第一个参数是端点URL默认地址，第二个参数是你要替换的URL地址

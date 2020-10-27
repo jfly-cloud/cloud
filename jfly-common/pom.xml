@@ -15,6 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <hutool.version>5.4.4</hutool.version>
+        <springfox.version>3.0.0</springfox.version>
+        <jwt.version>3.11.0</jwt.version>
     </properties>
 
     <dependencies>
@@ -27,8 +29,22 @@
             <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jfly</groupId>
+            <artifactId>jfly-api</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -38,7 +54,7 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
-            <version>3.0.0</version>
+            <version>${springfox.version}</version>
         </dependency>
     </dependencies>
 </project>

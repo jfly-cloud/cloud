@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jfly.api.mapper.JflyLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jfly.api.entity.JflyLog">
+        <id column="id" property="id" />
+        <result column="deleted" property="deleted" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="updated_time" property="updatedTime" />
+        <result column="remark" property="remark" />
+        <result column="title" property="title" />
+        <result column="business_type" property="businessType" />
+        <result column="method" property="method" />
+        <result column="request_method" property="requestMethod" />
+        <result column="operator_type" property="operatorType" />
+        <result column="oper_name" property="operName" />
+        <result column="oper_url" property="operUrl" />
+        <result column="oper_ip" property="operIp" />
+        <result column="oper_param" property="operParam" />
+        <result column="json_result" property="jsonResult" />
+        <result column="status" property="status" />
+        <result column="error_msg" property="errorMsg" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        deleted,created_by,created_time,updated_by,updated_time,remark,
+        id, title, business_type, method, request_method, operator_type, oper_name, oper_url, oper_ip, oper_param, json_result, status, error_msg
+    </sql>
+
+</mapper>

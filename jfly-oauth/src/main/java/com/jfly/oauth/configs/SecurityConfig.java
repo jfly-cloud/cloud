@@ -44,8 +44,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
-
-    public static void main(String[] args) {
-        System.out.println(DigestUtils.md5DigestAsHex("jfly-cloud".getBytes()));
-    }
 }
